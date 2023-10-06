@@ -22,7 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.activity3.R.drawable.bg
 import com.example.activity3.ui.theme.Activity3Theme
 
 class MainActivity : ComponentActivity() {
@@ -35,10 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TampilText(
-                        message = getString(R.string.greeting),
-                        from = getString(R.string.waktu)
-                    )
+                    TampilLayar(pesan = getString(R.string.greeting), dari =getString(R.string.waktu) )
                 }
             }
         }
@@ -53,13 +49,13 @@ fun TampilText(message:String, from:String, modifier: Modifier=Modifier){
             color = Color.Blue,
             text = message,
             fontSize = 80.sp,
-            lineHeight = 100.sp,
+            lineHeight = 110.sp,
             textAlign = TextAlign.Center
         )
         Text(
             color = Color.Red,
             text = from,
-            fontSize = 60.sp,
+            fontSize = 80.sp,
             modifier = Modifier
                 .padding(16.dp)
                 .align(alignment = Alignment.CenterHorizontally)
@@ -69,13 +65,9 @@ fun TampilText(message:String, from:String, modifier: Modifier=Modifier){
 
 @Composable
 fun TampilLayar(pesan: String, dari: String){
-    val image = painterResource(bg)
+    val image = painterResource(R.drawable.download)
     Box{
-        Image(painter = image,
-            contentDescription = null,
-            contentScale = ContentScale.FillHeight,
-            modifier = Modifier.fillMaxSize())
-
+        Image(painter = image, contentDescription =null, contentScale = ContentScale.FillHeight, modifier = Modifier.fillMaxSize())
         TampilText(
             message = pesan,
             from = dari,
